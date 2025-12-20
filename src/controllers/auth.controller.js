@@ -1,3 +1,8 @@
-exports.register = async (req, res) => {
-    return res.status(201).json({message: 'Registration endpoint placeholder'});
+exports.register = async (req, res, next) => {
+    try {
+        const { error, value } = registerSchema.validate(req.body);
+        if (error) {
+            
+        }
+    }
 };
