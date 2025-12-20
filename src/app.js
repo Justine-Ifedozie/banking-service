@@ -5,9 +5,12 @@ const app = express();
 
 const authRoutes = require('./routes/auth.routes');
 
+const errorHandler = require('./middleware/error.middleware');
+
 app.use(cors());
 app.use(express.json());
 app.use('/api/auth', authRoutes);
+app.use(errorHandler);
 
 app.get('/health', (_, res) => {
     res.json({status: 'OK', service: 'Banking Service', timestamp: new Date() });
