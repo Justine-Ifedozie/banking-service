@@ -10,7 +10,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL)
 }
 
 model User {
@@ -25,7 +24,7 @@ model User {
   isPhoneVerified       Boolean     @default(false)
   transactionalPinHash  String?
   kycStatus             String      @default("pending")
-  kycTier               init        @default(1)
+  kycTier               Int      @default(1)
   status                String      @default("active")
   createdAt             DateTime    @default(now())
   updatedAt             DateTime    @updatedAt
