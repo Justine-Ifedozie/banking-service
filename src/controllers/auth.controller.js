@@ -1,3 +1,7 @@
+const authService = require('../services/auth.service');
+const { registerSchema } = require('../validators/auth.validator');
+const AppError = require('../middleware/appError');
+
 exports.register = async (req, res, next) => {
     try {
         const { error, value } = registerSchema.validate(req.body);
