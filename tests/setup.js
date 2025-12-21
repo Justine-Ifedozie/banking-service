@@ -1,9 +1,11 @@
-const prisma = require('../src/config/database');
+process.env.NODE_ENV = 'test';
+
+const prisma = require('./prisma');
 
 beforeEach(async () => {
-    await prisma.user.deleteMany();
+  await prisma.user.deleteMany();
 });
 
 afterAll(async () => {
-    await prisma.$disconnect();
+  await prisma.$disconnect();
 });
