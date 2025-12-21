@@ -3,6 +3,7 @@ const app = require('../src/app');
 
 describe('Auth - Register', () => {
     it('should register a user successfully', async () => {
+        const res = await request(app)
         await request(app).post('/api/auth/register').send({
                 email: 'justine@gmail.com',
                 phone: '+2348012345678',
