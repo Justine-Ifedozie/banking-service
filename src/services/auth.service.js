@@ -28,13 +28,13 @@ class AuthService {
         const user = await userRepository.findByEmail(email);
 
         if (!user) {
-            throw new AppError('Invalid email or password', 401);
+            throw new AppError('Invalid email', 401);
         }
 
         const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
 
         if (!isPasswordValid) {
-            throw new AppError('Invalid email or password', 401);
+            throw new AppError('Invalid password', 401);
         }
 
         const token = signToken({ userId: user.id });
