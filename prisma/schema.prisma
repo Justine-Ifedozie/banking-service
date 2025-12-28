@@ -25,7 +25,7 @@ model User {
   isPhoneVerified       Boolean     @default(false)
   transactionalPinHash  String?
   kycStatus             String      @default("pending")
-  kycTier               Int      @default(1)
+  kycTier               Int         @default(1)
   status                String      @default("active")
   createdAt             DateTime    @default(now())
   updatedAt             DateTime    @updatedAt
